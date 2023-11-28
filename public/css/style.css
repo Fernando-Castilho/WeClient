@@ -1,0 +1,326 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #e0e0e0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.novo-cliente{
+    width: 90vw;
+    margin: 0 5vw;
+}
+
+.btn-novo{
+    background-color: rgb(24, 211, 24);
+    text-decoration: none;
+    padding: 5px;
+    color: #fff;
+    border-radius: 10px;
+    width: 20%;
+    border: none;
+    transition: .2s;
+    margin: 2rem;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-novo:hover{
+    background-color: rgb(10, 125, 10);
+}
+
+.search-bar{
+    width: 90vw;
+    margin: 0 5vw;
+    text-align: center;
+}
+
+.search-bar input{
+    width: 80%;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 16px;
+    border: 1px solid #000;
+}
+
+.search-bar button{
+    padding: 10px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid #000;
+    border-left: none;
+}
+
+.badge{
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+}
+
+.bg-vermelho{
+    background-color: rgb(231, 14, 14);
+}
+
+.bg-amarelo{
+    background-color: rgb(224, 205, 35);
+}
+
+.bg-verde{
+    background-color: rgb(105, 196, 30);
+}
+
+.bg-cinza{
+    background-color: gray;
+}
+
+.page-indicator{
+    text-align: center;
+    position: relative;
+    width: 90vw;
+    margin: 0 5vw;
+}
+
+.page-indicator h3{
+    font-weight: 500;
+    margin: 1vh 0;
+}
+
+.page-indicator a{
+    text-decoration: none;
+    background-color: #0e7c7b;
+    padding: 5px;
+    border-radius: 10px;
+    transition: .3s;
+    cursor: default;
+    color: #fff;
+}
+
+.page-indicator a:visited:hover,
+.page-indicator a:link:hover{
+    background-color: #0e7c7b;
+}
+
+.page-indicator a:link,
+.page-indicator a:visited{
+    cursor: pointer;
+    background-color: #17bebb;
+}
+
+table{
+    position: relative;
+    border-collapse: collapse;
+    width: 90vw;
+    margin: 1.5rem 5vw;
+}
+
+th, td{
+    text-align: left;
+    padding: 8px;
+}
+
+th{
+    padding: 12px 8px;
+    background-color: #0e7c7b;
+    color: #fff;
+}
+
+tr{
+    border-bottom: 1px solid rgb(84, 84, 84);
+    background-color: rgb(196, 196, 196);
+}
+
+tr:hover{
+    background-color: rgb(159, 159, 159);
+    transition: .2s;
+}
+
+table .renda{
+    width: 10vw;
+}
+
+table .nome{
+    width: 75vw;
+}
+
+table .acoes{
+    width: 15vw;
+}
+
+
+.btn{
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: .2s;
+}
+
+.btn-vermelho{
+    background-color: rgb(197, 27, 27);
+    color: #fff;
+}
+
+.btn-vermelho:hover{
+    background-color: rgb(231, 25, 25);
+}
+
+.btn-azul{
+    background-color: #17bebb;
+}
+
+.btn-azul:hover{
+    background-color: #0e7c7b;
+}
+
+table button{
+    width: 100%;
+}
+
+.alert{
+    text-align: center;
+}
+
+.alert-danger{
+    background-color: rgb(255, 134, 134);
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.title{
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 1rem;
+}
+
+.form-cliente{
+    width: 90vw;
+    margin: 1.5rem 5vw;
+    padding: 1rem 10%;
+    background-color: rgb(196, 196, 196);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    text-align: center;
+}
+
+.form-cliente input{
+    width: 100%;
+    border: none;
+    background-color: rgb(159, 159, 159);
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.form-cliente input:focus{
+    outline: none;
+}
+
+.form-cliente label{
+    text-align: left;
+}
+
+.form-cliente button{
+    width: 50%;
+    font-size: 20px;
+    color: #fff;
+}
+
+.entry{
+    text-align: left;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.error{
+    color: rgb(255, 255, 255);
+    background-color: rgb(222, 79, 79);
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: .5rem;
+}
+
+@media screen and (max-width: 425px) {
+    table{
+        width: 100vw;
+        margin: 1.5rem 0;
+        margin-bottom: 0;
+    }
+
+    table .renda{
+        width: 10vw;
+    }
+    table .nome{
+        width: 20vw;
+    }
+    table .acoes{
+        width: 20vw;
+    }
+
+    .search-bar input{
+        width: 70%;
+    }
+
+    .form-cliente{
+        width: 100vw;
+        margin: 0;
+        margin-top: 1.5rem;
+    }
+
+    .form-cliente button{
+        width: 100%;
+    }
+
+    .btn-novo{
+        margin: 2rem 0;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) and (min-width: 426px){
+    table{
+        width: 100vw;
+        margin: 1.5rem 0;
+        margin-bottom: 0;
+    }
+
+    table .renda{
+        width: 10vw;
+    }
+    table .nome{
+        width: 40vw;
+    }
+    table .acoes{
+        width: 20vw;
+    }
+
+    .search-bar input{
+        width: 70%;
+    }
+
+    .form-cliente{
+        width: 100vw;
+        margin: 0;
+        margin-top: 1.5rem;
+    }
+
+    .form-cliente button{
+        width: 100%;
+    }
+
+    .btn-novo{
+        margin: 2rem 0;
+        width: 100%;
+    }
+}
