@@ -8,6 +8,46 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.tx-white{
+    color: #fff;
+}
+
+.tx-black{
+    color: #000;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.sair, .user, .active) {
+    background-color: #111;
+  }
+  
+  .sair {
+    background-color: #a62222;
+  }
+
+  .sair:hover{
+    background-color: #d52424;
+  }
+
 .novo-cliente{
     width: 90vw;
     margin: 0 5vw;
@@ -79,6 +119,10 @@ body{
 
 .bg-cinza{
     background-color: gray;
+}
+
+.bg-cinza2{
+    background-color: rgb(152, 152, 152);
 }
 
 .page-indicator{
@@ -198,7 +242,6 @@ table button{
 }
 
 .title{
-    color: #fff;
     font-size: 30px;
     margin-bottom: 1rem;
 }
@@ -251,7 +294,68 @@ table button{
     margin-top: .5rem;
 }
 
+.card{
+    margin: 5vh 5vw;
+    width: 90vw;
+    background-color: rgb(196, 196, 196);
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+}
+
+.flex{
+    display: flex;
+}
+
+.mini-card{
+    width: 20%;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 2% 5%;
+}
+
+.card h2{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card .number{
+    font-size: 40px;
+    text-align: center;
+}
+
+.menu-card{
+    margin: 0 25%;
+    width: 50%;
+}
+
+.arredondado{
+    border-radius: 10px;
+}
+
+.active{
+    background-color: rgb(35, 167, 35);
+}
+
+.active:hover{
+    background-color: rgb(50, 184, 50);
+}
+
+.menu-card ul li{
+    width: 33.33%;
+    cursor: pointer;
+}
+
+.w-90{
+    width: 90%;
+    text-align: center;
+}
+
 @media screen and (max-width: 425px) {
+    .user{
+        display: none;
+    }
+
     table{
         width: 100vw;
         margin: 1.5rem 0;
@@ -284,6 +388,14 @@ table button{
 
     .btn-novo{
         margin: 2rem 0;
+        width: 100%;
+    }
+
+    .menu-card{
+        margin: 0 5%;
+        width: 90%;
+    }
+    .menu-card ul li{
         width: 100%;
     }
 }
@@ -321,6 +433,30 @@ table button{
 
     .btn-novo{
         margin: 2rem 0;
+        width: 100%;
+    }
+
+    .menu-card{
+        margin: 0 5%;
+        width: 90%;
+    }
+    .menu-card ul li{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 881px) {
+    .flex{
+        display: block;
+    }
+    .mini-card{
+        width: 90%;
+    }
+    .menu-card{
+        margin: 0 5%;
+        width: 90%;
+    }
+    .menu-card ul li{
         width: 100%;
     }
 }

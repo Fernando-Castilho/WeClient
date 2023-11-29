@@ -19,7 +19,7 @@
             @if($cliente->Id != 0)
                 @method("put")
             @endif
-            <h1 class="title">{{ $titulo }} cliente</h1>
+            <h1 class="title tx-white">{{ $titulo }} cliente</h1>
             
             <div class="entry">
                 <label for="nome">Nome</label>

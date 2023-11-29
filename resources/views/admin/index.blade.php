@@ -1,64 +1,142 @@
 @extends("layouts.admin")
 
 @section("conteudo")
-    {{ $clientes->count() }} Cliente(s) cadastrados
-    <br>
-    <br>
-    Maiores de idade e renda média:
-    {{ $clientes->where("Idade", ">", 17)->where("Renda", ">", $rendaMedia)->count(); }}
-    <br>
-    <br>
-    Clientes classe A: {{ $clientes->whereNotNull("Renda")->where("Renda", "<=", 980)->count() }}
-    <br>
-    Clientes classe B: {{ $clientes->whereNotNull("Renda")->where("Renda", ">", 980)->where("Renda", "<=", 2500)->count() }}
-    <br>
-    Clientes classe C: {{ $clientes->whereNotNull("Renda")->where("Renda", ">", 2500)->count() }}
-    <br>
-    Clientes sem classe: {{ $clientes->whereNull("Renda")->count() }}
-    <br>
-    <br>
-    <div id="dia">
-        <h1>Hoje</h1>
-        <br>
-        Clientes cadastrados: {{ $clientesDia->count() }}
-        <br>
-        <br>
-        Clientes classe A: {{ $clientesDia->whereNotNull("Renda")->where("Renda", "<=", 980)->count() }}
-        <br>
-        Clientes classe B: {{ $clientesDia->whereNotNull("Renda")->where("Renda", ">", 980)->where("Renda", "<=", 2500)->count() }}
-        <br>
-        Clientes classe C: {{ $clientesDia->whereNotNull("Renda")->where("Renda", ">", 2500)->count() }}
-        <br>
-        Clientes sem classe: {{ $clientesDia->whereNull("Renda")->count() }}
+    <div class="card">
+        <h1 class="title tx-black">Renda média: {{ number_format((float)$rendaMedia, 2, ",", "") }}</h1>
+        <div class="mini-card w-90 bg-cinza">
+            <h2>Clientes com renda superior: {{ $clientes->where("Idade", ">", 17)->where("Renda", ">", $rendaMedia)->count(); }}</h2>
+        </div>
     </div>
-    <br>
-    <div id="semana">
-        <h1>Essa semana</h1>
-        <br>
-        Clientes cadastrados: {{ $clientesSemana->count() }}
-        <br>
-        <br>
-        Clientes classe A: {{ $clientesSemana->whereNotNull("Renda")->where("Renda", "<=", 980)->count() }}
-        <br>
-        Clientes classe B: {{ $clientesSemana->whereNotNull("Renda")->where("Renda", ">", 980)->where("Renda", "<=", 2500)->count() }}
-        <br>
-        Clientes classe C: {{ $clientesSemana->whereNotNull("Renda")->where("Renda", ">", 2500)->count() }}
-        <br>
-        Clientes sem classe: {{ $clientesSemana->whereNull("Renda")->count() }}
+    <div class="card">
+        <h1 class="title tx-black">Classes - Clientes</h1>
+        <div class="flex">
+            <div class="mini-card bg-vermelho">
+                <h2>Classe A</h2>
+                <div class="number">
+                    {{ $clientes->whereNotNull("Renda")->where("Renda", "<=", 980)->count() }}
+                </div>
+            </div>
+            <div class="mini-card bg-amarelo">
+                <h2>Classe B</h2>
+                <div class="number">
+                    {{ $clientes->whereNotNull("Renda")->where("Renda", ">", 980)->where("Renda", "<=", 2500)->count() }}
+                </div>
+            </div>
+            <div class="mini-card bg-verde">
+                <h2>Classe C</h2>
+                <div class="number">
+                    {{ $clientes->whereNotNull("Renda")->where("Renda", ">", 2500)->count() }}
+                </div>
+            </div>
+            <div class="mini-card bg-cinza">
+                <h2>Não definida</h2>
+                <div class="number">
+                    {{ $clientes->whereNull("Renda")->count() }}
+                </div>
+            </div>
+        </div>
     </div>
-    <br>
-    <div id="mes">
-        <h1>Esse mês</h1>
-        <br>
-        Clientes cadastrados: {{ $clientesMes->count() }}
-        <br>
-        <br>
-        Clientes classe A: {{ $clientesMes->whereNotNull("Renda")->where("Renda", "<=", 980)->count() }}
-        <br>
-        Clientes classe B: {{ $clientesMes->whereNotNull("Renda")->where("Renda", ">", 980)->where("Renda", "<=", 2500)->count() }}
-        <br>
-        Clientes classe C: {{ $clientesMes->whereNotNull("Renda")->where("Renda", ">", 2500)->count() }}
-        <br>
-        Clientes sem classe: {{ $clientesMes->whereNull("Renda")->count() }}
+    <div class="card">
+        <div class="menu-card">
+            <ul class="arredondado">
+                <li><a class="active" id="hoje" onclick="TrocarData('hoje')">Hoje</a></li>
+                <li><a id="semana" onclick="TrocarData('semana')">Esse semana</a></li>
+                <li><a id="mes" onclick="TrocarData('mes')">Esse mês</a></li>
+            </ul>
+        </div>
+        <div id="dadosHoje" class="mini-card bg-cinza2 w-90">
+            <div class="mini-card w-90 bg-cinza">
+                <h2>Clientes novos: {{ $clientesDia->count() }}</h2>
+            </div>
+            <div class="flex">
+                <div class="mini-card bg-vermelho">
+                    <h2>Classe A</h2>
+                    <div class="number">
+                        {{ $clientesDia->whereNotNull("Renda")->where("Renda", "<=", 980)->count() }}
+                    </div>
+                </div>
+                <div class="mini-card bg-amarelo">
+                    <h2>Classe B</h2>
+                    <div class="number">
+                        {{ $clientesDia->whereNotNull("Renda")->where("Renda", ">", 980)->where("Renda", "<=", 2500)->count() }}
+                    </div>
+                </div>
+                <div class="mini-card bg-verde">
+                    <h2>Classe C</h2>
+                    <div class="number">
+                        {{ $clientesDia->whereNotNull("Renda")->where("Renda", ">", 2500)->count() }}
+                    </div>
+                </div>
+                <div class="mini-card bg-cinza">
+                    <h2>Não definida</h2>
+                    <div class="number">
+                        {{ $clientesDia->whereNull("Renda")->count() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dadosSemana" class="mini-card bg-cinza2 w-90" style="display: none">
+            <div class="mini-card w-90 bg-cinza">
+                <h2>Clientes novos: {{ $clientesSemana->count() }}
+            </div>
+            <div class="flex">
+                <div class="mini-card bg-vermelho">
+                    <h2>Classe A</h2>
+                    <div class="number">
+                        {{ $clientesSemana->whereNotNull("Renda")->where("Renda", "<=", 980)->count() }}
+                    </div>
+                </div>
+                <div class="mini-card bg-amarelo">
+                    <h2>Classe B</h2>
+                    <div class="number">
+                        {{ $clientesSemana->whereNotNull("Renda")->where("Renda", ">", 980)->where("Renda", "<=", 2500)->count() }}
+                    </div>
+                </div>
+                <div class="mini-card bg-verde">
+                    <h2>Classe C</h2>
+                    <div class="number">
+                        {{ $clientesSemana->whereNotNull("Renda")->where("Renda", ">", 2500)->count() }}
+                    </div>
+                </div>
+                <div class="mini-card bg-cinza">
+                    <h2>Não definida</h2>
+                    <div class="number">
+                        {{ $clientesSemana->whereNull("Renda")->count() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dadosMes" class="mini-card bg-cinza2 w-90" style="display: none">
+            <div class="mini-card w-90 bg-cinza">
+                <h2>Clientes novos: {{ $clientesMes->count() }}
+            </div>
+            <div class="flex">
+                <div class="mini-card bg-vermelho">
+                    <h2>Classe A</h2>
+                    <div class="number">
+                        {{ $clientesMes->whereNotNull("Renda")->where("Renda", "<=", 980)->count() }}
+                    </div>
+                </div>
+                <div class="mini-card bg-amarelo">
+                    <h2>Classe B</h2>
+                    <div class="number">
+                        {{ $clientesMes->whereNotNull("Renda")->where("Renda", ">", 980)->where("Renda", "<=", 2500)->count() }}
+                    </div>
+                </div>
+                <div class="mini-card bg-verde">
+                    <h2>Classe C</h2>
+                    <div class="number">
+                        {{ $clientesMes->whereNotNull("Renda")->where("Renda", ">", 2500)->count() }}
+                    </div>
+                </div>
+                <div class="mini-card bg-cinza">
+                    <h2>Não definida</h2>
+                    <div class="number">
+                        {{ $clientesMes->whereNull("Renda")->count() }}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="/js/relatorio.js"></script>
 @endsection
