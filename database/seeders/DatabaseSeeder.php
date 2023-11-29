@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
             'password' => '$2y$12$a0mSVwUbnzk7ji7Awn1Oj.S1TWhRB048RmIPDynLsRdanZxoGOgdu'
         ]);
 
-         \App\Models\Cliente::factory(50)->create();
+        // \App\Models\Cliente::factory(50)->create();
     }
 }
